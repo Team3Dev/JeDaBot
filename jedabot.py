@@ -5,6 +5,12 @@ __version__ = "1.0"
 
 print("JeDaBot {}\nThe smart people are the ones who fails. Without fails, people are morons.\n".format(__version__))
 
+from bin.client import IRCClient
+import random
+import re
+import signal
+import sys
+import time
 try:
     from conf.configuration import *
 except ImportError:
@@ -13,12 +19,6 @@ except ImportError:
 except Exception as err:
     print('JeDaBot cannot load the configuration: {}'.format(err))
     sys.exit(1)
-from bin.client import IRCClient
-import random
-import re
-import signal
-import sys
-import time
 
 irc = IRCClient()
 
