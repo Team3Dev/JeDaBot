@@ -338,7 +338,7 @@ class IRCClient:
         self.addhandler("330", self._whoisaccount)
 
     def connect(self, server, port, nick, user, realname,
-            msgdelay=0.6):
+            msgdelay=0.5):
         if self.connected:
             self.disconnect("Changing servers")
 
@@ -384,14 +384,15 @@ class IRCClient:
         self.reconnect()
 
     def process_queue(self):
-        try: 
+        try:  
             while True:
-                if not self.connected:
+                if self.connected is False:
                     return 0
                 for stuff in self.queue:
                     self.send_stuff(stuff)
                     self.queue.remove(stuff)
                     time.sleep(self.msgdelay)
+                time.sleep(self.msgdelay)
         except:
             pass
 
