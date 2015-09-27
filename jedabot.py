@@ -62,10 +62,10 @@ def _iscommand(ev):
                     return m1
         except:
             pass
-        p1 = re.compile("^" + re.escape("!") +
+        p1 = re.compile("^" + re.escape(PREFIX) +
             "(\S{1,52})[ ]?(.*)", re.IGNORECASE)
     else:
-        p1 = re.compile("^(?:" + re.escape("!") +
+        p1 = re.compile("^(?:" + re.escape(PREFIX) +
             ")?(\S{1,52})[ ]?(.*)", re.IGNORECASE)
     m1 = p1.search(ev.arguments[0])
     return m1
