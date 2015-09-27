@@ -338,7 +338,7 @@ class IRCClient:
         self.addhandler("330", self._whoisaccount)
 
     def connect(self, server, port, nick, user, realname,
-            msgdelay=0.5):
+            msgdelay=0.6):
         if self.connected:
             self.disconnect("Changing servers")
 
@@ -389,9 +389,9 @@ class IRCClient:
                 if not self.connected:
                     return 0
                 for stuff in self.queue:
-                    time.sleep(self.msgdelay)
                     self.send_stuff(stuff)
                     self.queue.remove(stuff)
+                    time.sleep(self.msgdelay)
         except:
             pass
 
@@ -1026,7 +1026,8 @@ class IRCClient:
         self.send("NAMES" + (channels and (" " + ",".join(channels)) or ""))
 
     def notice(self, target, msg, nonewmsg=False):
-        maxlen = 440 - len("NOTICE {0} :".format(target.encode('utf-8')))
+        maxlen = 440 - len("NOTICE262,
+    , None), ( {0} :".format(target.encode('utf-8')))
         if len(msg.encode('utf-8')) > maxlen:
             words = msg.split()
             avail = maxlen
