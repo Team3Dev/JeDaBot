@@ -1,0 +1,14 @@
+HOST = "irc.lizardirc.org" # Server to connect
+PORT = 6667 # Server's port
+NICK = "JeDaBot" # Nick to use
+IDENT = NICK # Ident to use
+REALNAME = "The smart people are the ones who fails. Without fails, people are morons." # Real name
+PREFIX = "!" # Prefix to use
+USERNAME = ""  # NickServ's username - set this empty if same as NICK
+PASS = "JeDaJeDiJeDu" # NickServ's password
+
+CHANNELS = ["#catbots"] # List of channels where I should be.
+
+OWNER = "JeDa" # Bot's owner
+
+ADMINS = ["NeoMahler", "mikicat"] # Admins of the bot
